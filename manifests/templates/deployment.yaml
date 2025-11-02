@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-gradle-service01
+  labels:
+    app: spring-gradle-service01
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-gradle-service01
+  template:
+    metadata:
+      labels:
+        app: spring-gradle-service01
+    spec:
+      containers:
+        - name: spring-gradle-service01
+          image: docker.io/phengbunath/spring_gradle_service01:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
